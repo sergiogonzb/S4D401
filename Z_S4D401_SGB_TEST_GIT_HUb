@@ -1,0 +1,20 @@
+class z_sgb_github definition public final create public.
+public section.
+  interfaces if_oo_adt_classrun.
+protected section.
+private section.
+
+endclass.
+
+class z_sgb_github implementation.
+
+  method if_oo_adt_classrun~main.
+
+    data: lv_string type string.
+
+    lv_string = 'Hello World'.
+
+    write: / lv_string.
+
+  endmethod.
+endclass
