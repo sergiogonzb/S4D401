@@ -17,4 +17,6 @@ class z_sgb_github implementation.
     write: / lv_string.
 
   endmethod.
-endclass
+endclass.
+ 
+ 
