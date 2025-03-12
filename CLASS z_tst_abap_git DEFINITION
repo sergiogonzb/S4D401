@@ -6,6 +6,16 @@ CLASS z_tst_abap_git DEFINITION
   PUBLIC SECTION.
 
     INTERFACES if_oo_adt_classrun .
+    
+    METHODS get_string
+      RETURNING VALUE(rv_string) TYPE string.
+    
+    METHODS find_substring
+      IMPORTING iv_string TYPE string
+                iv_substring TYPE string
+      RETURNING VALUE(rv_position) TYPE i.
+    
+    DATA number TYPE i.
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.
@@ -21,5 +31,16 @@ CLASS z_tst_abap_git IMPLEMENTATION.
 
   out->write( txt ).
 
+  ENDMETHOD.
+
+  METHOD get_string.
+    rv_string = 'Hello, ABAP!'.
+  ENDMETHOD.
+
+  METHOD find_substring.
+    FIND iv_substring IN iv_string MATCH OFFSET rv_position.
+    IF sy-subrc <> 0.
+      rv_position = -1.
+    ENDIF.
   ENDMETHOD.
 ENDCLASS.
